@@ -1,0 +1,53 @@
+.header-card {
+    position: relative;
+    height: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #800020; /* Burgundy color */
+    color: white;
+}
+
+.header-card__detail {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header-card__icon {
+    font-size: 45px;
+    color: white;
+    margin-right: 15px;
+}
+
+.header-card__text {
+    text-align: center;
+    flex: 1;
+}
+
+.header-card__title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.header-card__count {
+    font-size: 23px;
+    color: white;
+    margin: 5px 0;
+}
+
+.header-card__link {
+    color: white;
+    text-decoration: underline;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.header-card__link:hover {
+    color: #ffd700; /* Gold color */
+    cursor: pointer;
+}

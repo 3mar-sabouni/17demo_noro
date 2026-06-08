@@ -1,0 +1,163 @@
+<templates>
+  <t t-name="dental_management.dashboard" owl="1">
+    <div class="vh-100 overflow-auto bg-muted">
+      <div class="vh-100 overflow-auto bg-muted" style="margin-bottom: 30px;">
+        <div class="row m-3">
+          <div class="col-lg-12">
+            <!-- Time periods -->
+            <div class="row">
+              <div class="col m-0 p-0">
+                <div class="shadow-sm border m-2 p-4 bg-white">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h1 class="text-primary fw-bold">Dental Management Dashboard</h1>
+                    <div>
+                      <select class="form-select" id="onchangeperiod" t-on-change="onChangePeriod">
+                        <option value="0">Today</option>
+                        <option value="7">Last 7 Days</option>
+                        <option value="30">Last 30 Days</option>
+                        <option value="90">Last 90 Days</option>
+                        <option value="365">Last 365 Days</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row m-3">
+              <!-- appointments -->
+              <div class="col-lg-3">
+                <div class="header-card" style="background-color: #624BFF;">
+                    <div class="header-card__detail">
+                        <i class="fa fa-calendar header-card__icon"></i>
+                        <div class="header-card__text">
+                            <p class="header-card__title">Appointments</p>
+                            <p class="header-card__count" id="appointment_count">Loading...</p>
+                            <a href="#" class="header-card__link" t-on-click="(ev) => this.onClickAppointmentBtn(ev)">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+              <!-- Todays appointments -->
+              <div class="col-lg-3">
+                <div class="header-card" style="background-color: #5B2C6F;">
+                    <div class="header-card__detail">
+                        <i class="fa fa-book header-card__icon"></i>
+                        <div class="header-card__text">
+                            <p class="header-card__title">Today's Appointments</p>
+                            <p class="header-card__count" id="todays_appointment_count">Loading...</p>
+                            <a href="#" class="header-card__link" t-on-click="(ev) => this.onClickTodaysAppointmentBtn(ev)">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+              <!-- Patient -->
+              <div class="col-lg-3">
+                <div class="header-card" style="background-color: #637381;">
+                    <div class="header-card__detail">
+                        <i class="fa fa-users header-card__icon"></i>
+                        <div class="header-card__text">
+                            <p class="header-card__title">Patients</p>
+                            <p class="header-card__count" id="patient_details">Loading...</p>
+                            <a href="#" class="header-card__link" t-on-click="(ev) => this.onClickPatientBtn(ev)">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+              <!-- Complaint -->
+              <div class="col-lg-3">
+                <div class="header-card" style="background-color: #198754;">
+                    <div class="header-card__detail">
+                        <i class="fa fa-exclamation-circle header-card__icon"></i>
+                        <div class="header-card__text">
+                            <p class="header-card__title">Pending Complaints</p>
+                            <p class="header-card__count" id="pending_complaints">Loading...</p>
+                            <a href="#" class="header-card__link" t-on-click="(ev) => this.onClickPendingComplaintBtn(ev)">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+               <!-- Prescriptions -->
+               <div class="col-lg-3">
+                <div class="header-card" style="background-color: #008B8B;">
+                    <div class="header-card__detail">
+                        <i class="fa fa-pencil-square-o header-card__icon"></i>
+                        <div class="header-card__text">
+                            <p class="header-card__title">Prescriptions</p>
+                            <p class="header-card__count" id="prescription_count">Loading...</p>
+                            <a href="#" class="header-card__link" t-on-click="(ev) => this.onClickPrescriptionCountBtn(ev)">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              
+              <!-- Revenue -->
+              <div class="col-lg-3">
+                <div class="header-card" style="background-color: #5F4339;">
+                    <div class="header-card__detail">
+                        <i class="fa fa-money header-card__icon"></i>
+                        <div class="header-card__text">
+                            <p class="header-card__title">Revenue</p>
+                            <p class="header-card__count" id="revenue">Loading...</p>
+                            <a href="#" class="header-card__link" t-on-click="(ev) => this.onClickrevenuetBtn(ev)">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            </div>
+          </div>
+          <!-- CHART VIEW -->
+          <!-- Service Based Appointment Chart -->
+          <div class="col-lg-4">
+            <div class="row">
+              <div class="col m-0 p-0" id="labtest">
+                <div class="shadow-sm border m-2 p-4 bg-white">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h3 class="text-primary fw-bold text-center">Service Based Appointments</h3>
+                    <div class="px-3 -y-1 bg-primary cursor-pointer">
+                            </div>
+                  </div>
+                </div>
+              </div>
+              <canvas t-ref="chart" id="appointment_chart"></canvas>
+            </div>
+          </div>
+          <!-- Doctor Based Appointments Chart -->
+          <div class="col-lg-4">
+            <div class="row">
+              <div class="col m-0 p-0" id="labtest">
+                <div class="shadow-sm border m-2 p-4 bg-white">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h3 class="text-primary fw-bold text-center">Doctor Based Appointments</h3>
+                    <div class="px-3 -y-1 bg-primary cursor-pointer">
+                          </div>
+                  </div>
+                </div>
+              </div>
+              <canvas t-ref="chart1" id="doctor_appointment_chart"/>
+            </div>
+          </div>
+          <!-- Doctor based revenue chart -->
+          <div class="col-lg-4">
+            <div class="row">
+              <div class="col m-0 p-0" id="labtest">
+                <div class="shadow-sm border m-2 p-4 bg-white">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h3 class="text-primary fw-bold text-center">Doctor Based Revenues</h3>
+                    <div class="px-3 -y-1 bg-primary cursor-pointer">
+                        </div>
+                  </div>
+                </div>
+              </div>
+              <canvas t-ref="chart2" id="doctor_revenue"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </t>
+</templates>

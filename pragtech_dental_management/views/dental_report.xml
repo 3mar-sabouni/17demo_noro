@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="report_dental" model="ir.actions.report">
+            <field name="name">Appointments Receipts</field>
+            <field name="model">medical.appointment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pragtech_dental_management.report_appointment</field>
+            <field name="report_file">pragtech_dental_management.report_appointment</field>
+            <field name="binding_model_id" ref="model_medical_appointment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_prescription123" model="ir.actions.report">
+            <field name="name">Prescription</field>
+            <field name="model">medical.appointment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pragtech_dental_management.report_prescription</field>
+            <field name="report_file">pragtech_dental_management.report_prescription</field>
+            <field name="binding_model_id" ref="model_medical_appointment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+        <record id="report_prescription_main123" model="ir.actions.report">
+            <field name="name">Main Prescription</field>
+            <field name="model">medical.prescription.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pragtech_dental_management.report_prescription_main</field>
+            <field name="report_file">pragtech_dental_management.report_prescription_main</field>
+            <field name="binding_model_id" ref="model_medical_prescription_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+        <record id="report_financing_agreement" model="ir.actions.report">
+            <field name="name">Patient Financing Agreement</field>
+            <field name="model">financing.agreement</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pragtech_dental_management.report_patient_financing_agreement</field>
+            <field name="report_file">pragtech_dental_management.report_patient_financing_agreement</field>
+            <field name="binding_model_id" ref="model_financing_agreement"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="nas_al_saqr_reimbursement_paperformat" model="report.paperformat">
+            <field name="name">Nas al Saqr Reimbursement</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">30.00</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">0.00</field>
+            <field name="margin_right">0.00</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">80</field>
+        </record>
+
+
+
+        <record id="report_employee_claim_form123" model="ir.actions.report">
+            <field name="name">Nas al Saqr Reimbursement</field>
+            <field name="model">medical.patient</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pragtech_dental_management.report_claim_form</field>
+            <field name="report_file">pragtech_dental_management.report_claim_form</field>
+            <field name="paperformat_id" ref="pragtech_dental_management.nas_al_saqr_reimbursement_paperformat"/>
+            <field name="binding_model_id" ref="model_medical_patient"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+        <record id="Daman_Reimbursement_paperformat" model="report.paperformat">
+            <field name="name">Daman Reimbursement</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40.00</field>
+            <field name="margin_bottom">18.00</field>
+            <field name="margin_left">0.00</field>
+            <field name="margin_right">0.00</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">80</field>
+        </record>
+
+
+        <record id="Daman_Reimbursement_form123" model="ir.actions.report">
+            <field name="name">Daman Reimbursement</field>
+            <field name="model">medical.patient</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pragtech_dental_management.report_daman_reimbursement</field>
+            <field name="report_file">pragtech_dental_management.report_daman_reimbursement</field>
+            <field name="paperformat_id" ref="pragtech_dental_management.Daman_Reimbursement_paperformat"/>
+            <field name="binding_model_id" ref="model_medical_patient"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+<!--        <record id="oman_reinburstment_paperformat" model="report.paperformat">-->
+<!--            <field name="name">Oman Reinburstment</field>-->
+<!--            <field name="default" eval="True"/>-->
+<!--            <field name="format">A4</field>-->
+<!--            <field name="page_height">0</field>-->
+<!--            <field name="page_width">0</field>-->
+<!--            <field name="orientation">Portrait</field>-->
+<!--            <field name="margin_top">5.00</field>-->
+<!--            <field name="margin_bottom">15.00</field>-->
+<!--            <field name="margin_left">0.00</field>-->
+<!--            <field name="margin_right">0.00</field>-->
+<!--            <field name="header_line" eval="False"/>-->
+<!--            <field name="header_spacing">20</field>-->
+<!--            <field name="dpi">80</field>-->
+<!--        </record>-->
+
+
+<!--        <record id="Daman_Reimbursement_form123" model="ir.actions.report">-->
+<!--            <field name="name">Daman Reimbursement</field>-->
+<!--            <field name="model">medical.patient</field>-->
+<!--            <field name="report_type">qweb-pdf</field>-->
+<!--            <field name="report_name">pragtech_dental_management.report_daman_reimbursement</field>-->
+<!--            <field name="report_file">pragtech_dental_management.report_daman_reimbursement</field>-->
+<!--            <field name="paperformat_id" ref="pragtech_dental_management.oman_reinburstment_paperformat"/>-->
+<!--            <field name="binding_model_id" ref="model_medical_patient"/>-->
+<!--            <field name="binding_type">report</field>-->
+<!--        </record>-->
+
+
+        <record id="nextcare_reimbursement_paperformat" model="report.paperformat">
+            <field name="name">Oman Reinbursement</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40.00</field>
+            <field name="margin_bottom">5.00</field>
+            <field name="margin_left">0.00</field>
+            <field name="margin_right">0.00</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">80</field>
+        </record>
+
+
+
+        <record id="nextcare_reimbursement_form123" model="ir.actions.report">
+            <field name="name">Nextcare reimbursement</field>
+            <field name="model">medical.patient</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pragtech_dental_management.report_nextcare_reimbursement</field>
+            <field name="report_file">pragtech_dental_management.report_nextcare_reimbursement</field>
+            <field name="paperformat_id" ref="pragtech_dental_management.nextcare_reimbursement_paperformat"/>
+            <field name="binding_model_id" ref="model_medical_patient"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+
+        <record id="income_byreport_report12333" model="ir.actions.report">
+            <field name="name">Income By Dentist</field>
+            <field name="model">medical.patient</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pragtech_dental_management.report_income_by_doctor</field>
+            <field name="report_file">pragtech_dental_management.report_income_by_doctor</field>
+        </record>
+
+        <record id="patient_byreport_report12333" model="ir.actions.report">
+            <field name="name">Patient By Doctor</field>
+            <field name="model">patient.by.doctor.report.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pragtech_dental_management.report_patient_by_doctor</field>
+            <field name="report_file">pragtech_dental_management.report_patient_by_doctor</field>
+        </record>
+
+    </data>
+</odoo>

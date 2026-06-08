@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="hour.select" id="hs0">
+            <field name="number">00</field>
+        </record>
+        <record model="hour.select" id="hs1">
+            <field name="number">01</field>
+        </record>
+        <record model="hour.select" id="hs2">
+            <field name="number">02</field>
+        </record>
+        <record model="hour.select" id="hs3">
+            <field name="number">03</field>
+        </record>
+        <record model="hour.select" id="hs4">
+            <field name="number">04</field>
+        </record>
+        <record model="hour.select" id="hs5">
+            <field name="number">05</field>
+        </record>
+        <record model="hour.select" id="hs6">
+            <field name="number">06</field>
+        </record>
+        <record model="hour.select" id="hs7">
+            <field name="number">07</field>
+        </record>
+        <record model="hour.select" id="hs8">
+            <field name="number">08</field>
+        </record>
+        <record model="hour.select" id="hs9">
+            <field name="number">09</field>
+        </record>
+        <record model="hour.select" id="hs10">
+            <field name="number">10</field>
+        </record>
+        <record model="hour.select" id="hs11">
+            <field name="number">11</field>
+        </record>
+        <record model="hour.select" id="hs12">
+            <field name="number">12</field>
+        </record>
+        <record model="hour.select" id="hs13">
+            <field name="number">13</field>
+        </record>
+        <record model="hour.select" id="hs14">
+            <field name="number">14</field>
+        </record>
+        <record model="hour.select" id="hs15">
+            <field name="number">15</field>
+        </record>
+        <record model="hour.select" id="hs16">
+            <field name="number">16</field>
+        </record>
+        <record model="hour.select" id="hs17">
+            <field name="number">17</field>
+        </record>
+        <record model="hour.select" id="hs18">
+            <field name="number">18</field>
+        </record>
+        <record model="hour.select" id="hs19">
+            <field name="number">19</field>
+        </record>
+        <record model="hour.select" id="hs20">
+            <field name="number">20</field>
+        </record>
+        <record model="hour.select" id="hs21">
+            <field name="number">21</field>
+        </record>
+        <record model="hour.select" id="hs22">
+            <field name="number">22</field>
+        </record>
+        <record model="hour.select" id="hs23">
+            <field name="number">23</field>
+        </record>
+
+        <record model="minute.select" id="minute0">
+            <field name="number">00</field>
+        </record>
+        <record model="minute.select" id="minute1">
+            <field name="number">01</field>
+        </record>
+        <record model="minute.select" id="minute2">
+            <field name="number">02</field>
+        </record>
+        <record model="minute.select" id="minute3">
+            <field name="number">03</field>
+        </record>
+        <record model="minute.select" id="minute4">
+            <field name="number">04</field>
+        </record>
+        <record model="minute.select" id="minute5">
+            <field name="number">05</field>
+        </record>
+        <record model="minute.select" id="minute6">
+            <field name="number">06</field>
+        </record>
+        <record model="minute.select" id="minute7">
+            <field name="number">07</field>
+        </record>
+        <record model="minute.select" id="minute8">
+            <field name="number">08</field>
+        </record>
+        <record model="minute.select" id="minute9">
+            <field name="number">09</field>
+        </record>
+        <record model="minute.select" id="minute10">
+            <field name="number">10</field>
+        </record>
+        <record model="minute.select" id="minute11">
+            <field name="number">11</field>
+        </record>
+        <record model="minute.select" id="minute12">
+            <field name="number">12</field>
+        </record>
+        <record model="minute.select" id="minute13">
+            <field name="number">13</field>
+        </record>
+        <record model="minute.select" id="minute14">
+            <field name="number">14</field>
+        </record>
+        <record model="minute.select" id="minute15">
+            <field name="number">15</field>
+        </record>
+        <record model="minute.select" id="minute16">
+            <field name="number">16</field>
+        </record>
+        <record model="minute.select" id="minute17">
+            <field name="number">17</field>
+        </record>
+        <record model="minute.select" id="minute18">
+            <field name="number">18</field>
+        </record>
+        <record model="minute.select" id="minute19">
+            <field name="number">19</field>
+        </record>
+        <record model="minute.select" id="minute20">
+            <field name="number">20</field>
+        </record>
+        <record model="minute.select" id="minute21">
+            <field name="number">21</field>
+        </record>
+        <record model="minute.select" id="minute22">
+            <field name="number">22</field>
+        </record>
+        <record model="minute.select" id="minute23">
+            <field name="number">23</field>
+        </record>
+        <record model="minute.select" id="minute24">
+            <field name="number">24</field>
+        </record>
+        <record model="minute.select" id="minute25">
+            <field name="number">25</field>
+        </record>
+        <record model="minute.select" id="minute26">
+            <field name="number">26</field>
+        </record>
+        <record model="minute.select" id="minute27">
+            <field name="number">27</field>
+        </record>
+        <record model="minute.select" id="minute28">
+            <field name="number">28</field>
+        </record>
+        <record model="minute.select" id="minute29">
+            <field name="number">29</field>
+        </record>
+        <record model="minute.select" id="minute30">
+            <field name="number">30</field>
+        </record>
+        <record model="minute.select" id="minute31">
+            <field name="number">31</field>
+        </record>
+        <record model="minute.select" id="minute32">
+            <field name="number">32</field>
+        </record>
+        <record model="minute.select" id="minute33">
+            <field name="number">33</field>
+        </record>
+        <record model="minute.select" id="minute34">
+            <field name="number">34</field>
+        </record>
+        <record model="minute.select" id="minute35">
+            <field name="number">35</field>
+        </record>
+        <record model="minute.select" id="minute36">
+            <field name="number">36</field>
+        </record>
+        <record model="minute.select" id="minute37">
+            <field name="number">37</field>
+        </record>
+        <record model="minute.select" id="minute38">
+            <field name="number">38</field>
+        </record>
+        <record model="minute.select" id="minute39">
+            <field name="number">39</field>
+        </record>
+        <record model="minute.select" id="minute40">
+            <field name="number">40</field>
+        </record>
+        <record model="minute.select" id="minute41">
+            <field name="number">41</field>
+        </record>
+        <record model="minute.select" id="minute42">
+            <field name="number">42</field>
+        </record>
+        <record model="minute.select" id="minute43">
+            <field name="number">43</field>
+        </record>
+        <record model="minute.select" id="minute44">
+            <field name="number">44</field>
+        </record>
+        <record model="minute.select" id="minute45">
+            <field name="number">45</field>
+        </record>
+        <record model="minute.select" id="minute46">
+            <field name="number">46</field>
+        </record>
+        <record model="minute.select" id="minute47">
+            <field name="number">47</field>
+        </record>
+        <record model="minute.select" id="minute48">
+            <field name="number">48</field>
+        </record>
+        <record model="minute.select" id="minute49">
+            <field name="number">49</field>
+        </record>
+        <record model="minute.select" id="minute50">
+            <field name="number">50</field>
+        </record>
+        <record model="minute.select" id="minute51">
+            <field name="number">51</field>
+        </record>
+        <record model="minute.select" id="minute52">
+            <field name="number">52</field>
+        </record>
+        <record model="minute.select" id="minute53">
+            <field name="number">53</field>
+        </record>
+        <record model="minute.select" id="minute54">
+            <field name="number">54</field>
+        </record>
+        <record model="minute.select" id="minute55">
+            <field name="number">55</field>
+        </record>
+        <record model="minute.select" id="minute56">
+            <field name="number">56</field>
+        </record>
+        <record model="minute.select" id="minute57">
+            <field name="number">57</field>
+        </record>
+        <record model="minute.select" id="minute58">
+            <field name="number">58</field>
+        </record>
+        <record model="minute.select" id="minute59">
+            <field name="number">59</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record id="income_by_procedure_qweb" model="ir.actions.report">
+            <field name="name">Income By Procedure</field>
+            <field name="model">income.by.procedure.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pragtech_dental_management.report_income_by_procedure</field>
+            <field name="report_file">pragtech_dental_management.report_income_by_procedure</field>
+
+        </record>
+
+    </data>
+</odoo>
