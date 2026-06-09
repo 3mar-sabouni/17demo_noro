@@ -1,0 +1,208 @@
+<odoo>
+    <data>
+        <template id="vibrant_marketplace_snippets" inherit_id="website.snippets" name="Vibrant Marketplace">
+            <xpath expr="//div[@id='snippet_structure']" position="before">
+                <div id="vb_snippet_marketplace_home" class="o_panel">
+                    <div class="o_panel_header">
+                        <span>
+                            <img id="snippet_icon" src="/theme_vibrant_marketplace/static/src/img/marketplace-snippet.png" alt="Image" />
+                        </span>
+                    </div>
+                    <div class="o_panel_body">
+                        <t t-snippet="theme_vibrant_marketplace.mp_title_view" t-thumbnail="/theme_vibrant/static/src/img/snippets/about/About-----TESTIMONIAL.png" />
+                        <t t-snippet="theme_vibrant_marketplace.our_sponsors" t-thumbnail="/theme_vibrant/static/src/img/snippets/about/About-----TESTIMONIAL.png" />
+                        <t t-snippet="theme_vibrant_marketplace.brand_configuration" t-thumbnail="/theme_vibrant/static/src/img/snippets/about/About-----TESTIMONIAL.png" />
+                    </div>
+                </div>
+            </xpath>
+        </template>
+        <template id="brand_configuration" name="Brands">
+            <section class="vb_brands">
+                <div class="outer_div owl owl-carousel">
+                    <t t-foreach="brands" t-as="brand">
+                        <div class="inner_div">
+                            <span t-field="brand.image" t-options="{'widget': 'image','class':'brand'}" />
+                        </div>
+                    </t>
+                </div>
+            </section>
+        </template>
+
+        <template id="mp_title_view" name="Marketplace Title">
+            <section class="mp_title_view">
+                <div class="content">
+                    <div class="grid">
+                        <div class="grid__item pos-1">
+                            <section class="grid__item-img" style="background-image:url('/theme_vibrant_marketplace/static/src/img/1.png');"></section>
+                        </div>
+                        <div class="grid__item pos-2">
+                            <section class="grid__item-img" style="background-image:url('/theme_vibrant_marketplace/static/src/img/2.png');"></section>
+                        </div>
+                        <div class="grid__item pos-3">
+                            <section class="grid__item-img" style="background-image:url('/theme_vibrant_marketplace/static/src/img/3.png');"></section>
+                        </div>
+                        <div class="grid__item pos-4">
+                            <section class="grid__item-img" style="background-image:url('/theme_vibrant_marketplace/static/src/img/4.png');"></section>
+                        </div>
+                        <div class="grid__item pos-5">
+                            <section class="grid__item-img" style="background-image:url('/theme_vibrant_marketplace/static/src/img/5.png');"></section>
+                        </div>
+                        <div class="grid__item pos-6">
+                            <section class="grid__item-img" style="background-image:url('/theme_vibrant_marketplace/static/src/img/6.png');"></section>
+                        </div>
+                        <div class="grid__item pos-7">
+                            <section class="grid__item-img" style="background-image:url('/theme_vibrant_marketplace/static/src/img/7.png');"></section>
+                        </div>
+                        <div class="grid__item pos-8">
+                            <section class="grid__item-img" style="background-image:url('/theme_vibrant_marketplace/static/src/img/8.png');"></section>
+                        </div>
+                        <div class="grid__item pos-9">
+                            <section class="grid__item-img" style="background-image:url('/theme_vibrant_marketplace/static/src/img/9.png');"></section>
+                        </div>
+                        <div class="grid__item pos-10">
+                            <section class="grid__item-img" style="background-image:url('/theme_vibrant_marketplace/static/src/img/10.png');"></section>
+                        </div>
+                    </div>
+                    <h2 class="content__title no-select">
+                        <span>Join</span>
+                        <span class="content__title-sub">today</span>
+                    </h2>
+                </div>
+            </section>
+        </template>
+
+        <template id="our_sponsors" name="Sponsors">
+            <section class="our_sponsors">
+                <h2 class="text-center">Meet Our Sponsors</h2>
+                <nav class="menu">
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Maria Costa</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/1.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Style Reset 66 Berlin</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Lana Ferrari</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/2.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Fashion Week Milano</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Franklin Roth</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/3.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Amber Convention London</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Cristie Noe</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/4.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Tokyo Summer Trends</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Wilma Quest</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/5.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">2021 West End New York</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Gary Winston</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/6.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Sunset Festival Greenwich</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Nesta Freeman</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/7.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Spirit Garments Jakarta</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Jolanda French</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/8.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Bluehouse Fashion Toronto</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Samantha Dunne</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/9.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Glamour Week Christchurch</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Tony Albert</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/10.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Piu Bella Fashion Rome</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Jacky Speed</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/1.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Sea Season Kuala Lumpur</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Carlton Holle</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/2.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Inspire Fashion Casablanca</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Kylla Maushet</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/3.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">One to Ten Moscow</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Fernando Castello</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/4.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Miksa Style Week Lisbon</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Sofie Henriette</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/5.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Free Fashion Budapest</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Adelie Bisset</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/6.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Couture Night Paris</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Takato Yang</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/7.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Modern Touch Hong Kong</span>
+                    </a>
+                    <a class="menu__item">
+                        <span class="menu__item-text">
+                            <span class="menu__item-textinner">Hadrian Kaiser</span>
+                            <img class="menu__item-img d-none" src="/theme_vibrant_marketplace/static/src/img/8.png" alt="img1" />
+                        </span>
+                        <span class="menu__item-sub">Neverland Fashion Madrid</span>
+                    </a>
+                </nav>
+            </section>
+        </template>
+    </data>
+</odoo>

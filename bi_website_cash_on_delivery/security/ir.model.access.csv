@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+bi_website_cash_on_delivery.access_cod_config,access_cod_config,bi_website_cash_on_delivery.model_cod_config,base.group_user,1,1,1,1
+bi_website_cash_on_delivery.access_res_zip,access_res_zip,bi_website_cash_on_delivery.model_res_zip,base.group_user,1,1,1,1
+bi_website_cash_on_delivery.access_cod_payment_collection,access_cod_payment_collection,bi_website_cash_on_delivery.model_cod_payment_collection,base.group_user,1,1,1,0
+
+access_sale_order_line_portal,sale.order.line.portal,sale.model_sale_order_line,base.group_user,,1,1,0,0
+access_sale_order,sale.order,sale.model_sale_order,base.group_user,,1,1,0,0
+access_account_journal,account.journal,account.model_account_journal,base.group_user,,1,1,0,0
+access_account_tax,account.tax,account.model_account_tax,base.group_user,,1,1,0,0
+access_account_tax_repartition_line,account.tax.repartition.line,account.model_account_tax_repartition_line,base.group_user,,1,1,0,0
+access_account_account_tag,account.account.tag,account.model_account_account_tag,base.group_user,,1,1,0,0
+access_account_tax_group,account.tax.group,account.model_account_tax_group,base.group_user,,1,1,0,0
+access_product_template,access_product_template,product.model_product_template,base.group_user,,1,1,1,0

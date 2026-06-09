@@ -1,0 +1,56 @@
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+
+<odoo>
+    <data>
+        <record id="theme_vibrant_config_form_inherited" model="ir.ui.view">
+            <field name="name">Vibrant Configuration Form</field>
+            <field name="model">theme.vibrant.fields</field>
+            <field name="inherit_id" ref="theme_vibrant.theme_vibrant_config_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="brand_config" string="Brands Configuration">
+                        <group string="Choose Brands">
+                            <field name="brands" />
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="brand_tag_form" model="ir.ui.view">
+            <field name="name">vibrant.brands</field>
+            <field name="model">vibrant.brands</field>
+            <field name="arch" type="xml">
+                <form string="Create a Brand">
+                    <group col="4">
+                        <field name="name" />
+                        <field name="image" widget="image" class="oe_avatar" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="theme_vibrant_config_brand_tree" model="ir.ui.view">
+            <field name="name">Vibrant Brands Configuration Tree</field>
+            <field name="model">vibrant.brands</field>
+            <field name="arch" type="xml">
+                <tree string="Vibrant Brands Configuration" name="Theme Brand Configuration">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="theme_vibrant_config_brand_action" model="ir.actions.act_window">
+            <field name="name">Theme Vibrant Brand Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vibrant.brands</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="theme_vibrant_marketplace.theme_vibrant_config_brand_tree" />
+        </record>
+
+        <menuitem name="Brands Configuration" id="vibrant_brand_config" parent="theme_vibrant.vibrant_config_main_menu" action="theme_vibrant_marketplace.theme_vibrant_config_brand_action" />
+
+    </data>
+</odoo>

@@ -1,0 +1,304 @@
+#wrapwrap {
+  .email-to-seller,
+  .profile-page-shop {
+    margin-right: 40px;
+    color: $primary !important;
+    font-style: normal;
+    font-weight: 600 !important;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    text-decoration-line: underline;
+    font-variant: small-caps;
+  }
+  .nav-tabs .nav-item {
+    margin-bottom: 0;
+  }
+
+  .divider.hidden-xs {
+    display: none;
+    &.hello {
+      display: none;
+    }
+    & + .nav-item {
+      display: flex;
+      align-items: center;
+      a {
+        color: #ffffff !important;
+      }
+    }
+  }
+
+  #seller_review {
+    & > div {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+  }
+
+  #seller_other_info {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    & > div {
+      margin-top: 10px;
+    }
+    span {
+      font-style: normal;
+      font-weight: 500 !important;
+      font-size: 14px;
+      line-height: 21px;
+      color: #646464;
+    }
+    .fa {
+      font-weight: 500 !important;
+      font-size: 14px;
+      line-height: 21px;
+      color: #646464;
+    }
+    & > div:first-child {
+      display: none;
+    }
+  }
+
+  #seller_name {
+    .grid-seller-name {
+      font-family: $o-theme-headings-font;
+      font-style: normal;
+      font-weight: 600 !important;
+      font-size: 16px;
+      line-height: 20px;
+      color: #333333;
+    }
+  }
+}
+
+.col-md-3 {
+  form[action="/seller/shops/list/"] {
+    & > div {
+      align-items: center;
+    }
+    input {
+      height: 2rem;
+    }
+  }
+}
+.oe_website_sale {
+  & > ul {
+    border-bottom: 1px solid $secondary;
+    li {
+      box-shadow: none;
+      margin-right: 10px;
+      a {
+        color: #ffffff !important;
+        border: none;
+        background-color: $primary !important;
+        border-radius: 0;
+        &.active {
+          background-color: $success !important;
+        }
+        &:hover:not(.active) {
+          color: $success !important;
+          // border: none;
+        }
+      }
+    }
+  }
+}
+
+#products_grid {
+  .mp_seller {
+    border: none !important;
+  }
+  #seller_shop_table {
+    @include media-breakpoint-down(sm) {
+      .oe_mp_product {
+        padding-top: inherit !important;
+      }
+    }
+    .oe_mp_product {
+      padding-top: inherit;
+      & > div {
+        position: unset;
+        & > div {
+          text-align: left;
+          overflow: hidden;
+          img {
+            height: 207px;
+            width: 88%;
+            object-fit: cover;
+            transition: transform 0.6s;
+            &:hover{
+              transform: scale(1.1);
+            }
+          }
+        }
+        #vb_shop_content {
+          position: unset;
+          margin-top: 10px;
+          margin-bottom: 5px;
+          position: relative;
+          padding-left: 0;
+          #btn_seller_shop {
+            .col-md-12 {
+              width: 128px;
+              padding: 0;
+              float: left;
+              margin-top: 0 !important;
+            }
+            a {
+              width: 128px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 0;
+            }
+          }
+          #shop_products_sales {
+            position: unset;
+            margin-bottom: 10px;
+            div {
+              padding: 0;
+              div {
+                background-color: #ffffff !important;
+                font-style: normal;
+                font-weight: 600 !important;
+                box-shadow: none;
+                font-size: 14px !important;
+                line-height: 17px;
+                color: #717171 !important;
+              }
+              &.pull-right {
+                .fa {
+                  margin-right: 30px !important;
+                }
+              }
+              &.pull-left {
+                .fa {
+                  &:before {
+                    content: "\f1b3";
+                  }
+                }
+              }
+            }
+          }
+          #seller-shop-name {
+            strong {
+              display: block;
+              margin-bottom: 5px;
+            }
+            a {
+              font-style: normal;
+              font-weight: 600 !important;
+              font-size: 16px;
+              line-height: 20px;
+              color: #333333;
+              margin-top: 5px;
+            }
+            div {
+              font-style: normal;
+              font-weight: 600 !important;
+              font-size: 14px;
+              line-height: 148%;
+              color: #9b9b9b;
+            }
+          }
+          .row.mb4 {
+            .col-md-12 {
+              text-align: left !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// #products_grid {
+//   .mp_seller {
+//     border: none !important;
+//     height: 25rem;
+//     #shop_products_sales {
+//       .badge-secondary {
+//         background-color: $primary;
+//       }
+//     }
+//     .oe_mp_product {
+//       height: 100%;
+//       & > div {
+//         & > div {
+//           height: 100%;
+//         }
+//       }
+//       .text-center {
+//         div {
+//           transition: box-shadow 0.6s;
+//           overflow: hidden;
+//           img {
+//             padding: 1rem;
+//             padding: 1rem;
+//             height: 25rem;
+//             width: 100%;
+//             object-fit: cover;
+//             transition: transform 0.6s;
+//           }
+//           &:hover {
+//             img {
+//               transform: scale(1.2);
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// #mp_shop_content {
+//   transition: all 0.6s;
+//   &:hover {
+//     opacity: 1;
+//     a {
+//       color: #ffffff !important;
+//     }
+//   }
+// }
+
+#pink_panther {
+  #shop_all_product {
+    justify-content: flex-end !important;
+    form {
+      background: #ffffff;
+      border: 1px solid #d8d8d8;
+      box-sizing: border-box;
+      height: 35px;
+      input {
+        border: none;
+      }
+      .oe_search_button {
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none;
+        background-color: #ffffff !important;
+        color: #333333;
+        font-weight: 300 !important;
+      }
+    }
+    .vibrant_pricelist {
+      margin: 2px 10px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 17px;
+      color: #777777;
+      background-color: #ffffff !important;
+      box-shadow: none;
+      border: 1px solid #d8d8d8;
+    }
+    .vt_price_list_menu {
+      margin-right: 24px;
+      & > a {
+        width: 134px;
+      }
+    }
+  }
+}

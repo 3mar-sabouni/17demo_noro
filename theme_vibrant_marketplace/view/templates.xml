@@ -1,0 +1,352 @@
+<odoo>
+    <data>
+        <template id="mp_seller_profile_inherited" inherit_id="odoo_marketplace.mp_seller_profile">
+            <xpath expr="//div[hasclass('seller-profile-pic')]/.." position="attributes">
+                <attribute name="class">col-md-3</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('container')]//div[5]" position="replace">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a t-if="website.mp_seller_contact_btn" t-attf-href="mailto:{{ seller.email }}" class="email-to-seller">
+                            <i class="fa fa-envelope mr-2" />
+                            Send email to seller
+                        </a>
+                        <t t-if="website.sudo().get_group_mp_shop_allow()">
+                            <t t-if="mp_seller_shop_id and mp_seller_shop_id.website_published and mp_seller_shop_id.active">
+                                <a class="profile-page-shop" target="_blank" t-attf-href="/seller/shop/#{mp_seller_shop_id.url_handler}">
+                                    <i class="fa fa-shopping-bag mr-2" />
+                                    Visit Shop
+                                </a>
+                            </t>
+                        </t>
+                    </div>
+                    <div class="col-md-5">
+                        <t t-foreach="seller.social_media_link_ids" t-as="social_media">
+                            <t t-if="social_media.wk_website_published">
+                                <div style='height:38px;width:38px;float:left;'>
+                                    <a t-attf-href="{{social_media.complete_url}}" target="_blank">
+                                        <span itemprop="image" t-field="social_media.social_media_id.image" t-options="{'widget': 'image'}" t-att-alt="social_media.social_media_id.name" t-attf-title="#{'Follow on ' + social_media.social_media_id.name}" />
+                                    </a>
+                                </div>
+                            </t>
+                        </t>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <a class="btn btn-success" target="_blank" href="/contactus">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+        <template id="custome_view3_shop_item_list_inherited" inherit_id="odoo_marketplace.custome_view3_shop_item_list">
+            <xpath expr="//div[@id='btn_seller_shop']//div[hasclass('col-md-6')]" position="attributes">
+                <attribute name="class">col-md-12</attribute>
+            </xpath>
+            <xpath expr="//div[@id='btn_seller_shop']//t[@t-if='seller_shop.sudo().active']//div[hasclass('col-md-6')]" position="attributes">
+                <attribute name="class">col-md-12 mt-2</attribute>
+            </xpath>
+        </template>
+        <template id="shop_recently_product_inherited" inherit_id="odoo_marketplace.shop_recently_product" priority="17">
+            <xpath expr="//div[hasclass('oe_website_sale')]" position="attributes">
+                <atrribute name="class">tab-pane active testt</atrribute>
+            </xpath>
+        </template>
+        <template id="mp_seller_shop_inherited" inherit_id="odoo_marketplace.mp_seller_shop">
+            <xpath expr="//div[@id='wrap']/div[4]" position="attributes">
+                <attribute name="class" add="oe_website_sale" separator=" " />
+            </xpath>
+            <xpath expr="//div[@t-if='website.mp_seller_contact_btn']//div[hasclass('col-md-2')]" position="replace">
+                <div class="col-md-12 text-right">
+                    <a t-attf-href="mailto:{{ shop_obj.sudo().seller_id.email }}" class="btn btn-success">Contact Seller</a>
+                </div>
+            </xpath>
+        </template>
+        <template id="wk_mp_seller_landing_page_inherited" inherit_id="odoo_marketplace.wk_mp_seller_landing_page">
+            <xpath expr="//div[4]" position="attributes">
+                <attribute name="class" add="vb_mp_landing_page" separator=" " />
+            </xpath>
+        </template>
+
+        <template id="wk_mp_seller_landing_page_inherited" inherit_id="odoo_marketplace.wk_mp_seller_landing_page">
+            <xpath expr="//div[hasclass('promo')]/div[1]" position="replace">
+                <section>
+                    <div class="view overlay zoom vibrant_lines shop_overlay">
+                        <img src="/theme_vibrant_marketplace/static/src/img/store.png" class="img-fluid title_snippet_img" alt="smaple image" />
+                    </div>
+                </section>
+            </xpath>
+
+            <xpath expr="//div[hasclass('promo')]/div[hasclass('sell_page_main_div')]/h2" position="after">
+                <p class="tagline">Selling Your Site,  best opportunity for growth!!!</p>
+            </xpath>
+
+            <xpath expr="//div[hasclass('container-fluid')]//div[hasclass('row','mt64','justify-content-center')]" position="replace">
+                <h3 class="selling-title mt-4 text-center">Process of Selling With Us</h3>
+                <div class="row mt-4 justify-content-center process_of_selling">
+                    <div class="col-md-3 col-md-offset-2 text-center shadow-sm p-4 mx-2">
+                        <div class="image-title d-flex align-items-center">
+                            <img src="/theme_vibrant_marketplace/static/src/img/icon-commission.png" alt="feature-a" />
+                            <div class="feature-text mx-2">
+                                <span>Open a New Shop</span>
+                            </div>
+                        </div>
+                        <div class="text-left mt-4">
+                            <span>By opening a shop at our marketplace you can expose more of your products to more potential customers. Your best opportunity for growth could be selling in our online marketplace.</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center shadow-sm p-4 mx-2">
+                        <div class="image-title d-flex align-items-center">
+                            <img src="/theme_vibrant_marketplace/static/src/img/icon-product.png" alt="feature-b" />
+                            <div class="feature-text mx-2">
+                                <span>Sell Products</span>
+                            </div>
+                        </div>
+                        <div class="text-left mt-4">
+                            <span>Business is all about trading. It's all about creating a product so good that people pay for it. Increase your sales figure from our high traffic channel.</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center shadow-sm p-4 mx-2">
+                        <div class="image-title d-flex align-items-center">
+                            <img src="/theme_vibrant_marketplace/static/src/img/icon-shop.png" alt="feature-c" />
+                            <div class="feature-text mx-2">
+                                <span>Get Quick Commission</span>
+                            </div>
+                        </div>
+                        <div class="text-left mt-4">
+                            <span>
+                                Be smart and start earning the commission whenever a product of yours is sold through our website. Commission Management provides full transparency and flexibility for both buy-side and sell-side.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+
+            <xpath expr="//div[hasclass('container')]" position="replace">
+                <div class="container vb_perks" style="margin-bottom:35px;">
+                    <div class="row mt16 mb32 justify-content-center">
+                        <h2 class="text-center" style="padding:5px;">
+                            Here are some great Facilities/Perks of our
+                            <br />
+                            Marketplace Store
+                        </h2>
+                    </div>
+                    <div class="row mb32 justify-content-center">
+                        <div class="col-md-6 text-center mt32 mb16 row">
+                            <div class="col-md-1 mb16">
+                                <div class="number">1</div>
+                            </div>
+                            <div class="col-md-11" style="padding-left:23px;">
+                                <div class="feature-text text-left">Open a New Shop</div>
+                                <div class="text-left">You can quickly start expanding your business and have a full-fledged online store without having to deal with the hassle of maintaining and investing in an e-commerce website for your products. So, start setting up your business in our marketplace.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 offset-2">
+                            <img src="/theme_vibrant_marketplace/static/src/img/perk-1.png" class="w-100" alt="Perks" />
+                        </div>
+                    </div>
+                    <div class="row mb32 justify-content-center">
+                        <div class="col-md-4">
+                            <img src="/theme_vibrant_marketplace/static/src/img/perk-2.png" class="w-100" alt="Perks" />
+                        </div>
+                        <div class="col-md-6 text-center mt32 mb16 row offset-2">
+                            <div class="col-md-1 mb16">
+                                <div class="number">2</div>
+                            </div>
+                            <div class="col-md-11" style="padding-left:23px;">
+                                <div class="feature-text text-left">Multi Support</div>
+                                <div class="text-left">Our company does not want to be in a single-vendor lock-in arrangement, Multi-vendor support setups bring a numerous of benefits thus we provide Multi-vendor/seller support.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb32 justify-content-center">
+                        <div class="col-md-6 text-center mt32 mb16 row">
+                            <div class="col-md-1 mb16">
+                                <div class="number">3</div>
+                            </div>
+                            <div class="col-md-11" style="padding-left:23px;">
+                                <div class="feature-text text-left">Commission Management</div>
+                                <div class="text-left">Since trust and transparency are an important aspect of a business hence we follow Commission Management that provides the full transparency that shows our sellers the commission charged when their product is sold from our website.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 offset-2">
+                            <img src="/theme_vibrant_marketplace/static/src/img/perk-3.png" class="w-100" alt="Perks" />
+                        </div>
+                    </div>
+                    <div class="row mb32 justify-content-center">
+                        <div class="col-md-4">
+                            <img src="/theme_vibrant_marketplace/static/src/img/perk-4.png" class="w-100" alt="Perks" />
+                        </div>
+                        <div class="col-md-6 text-center mt32 mb16 row offset-2">
+                            <div class="col-md-1 mb16">
+                                <div class="number">4</div>
+                            </div>
+                            <div class="col-md-11" style="padding-left:23px;">
+                                <div class="feature-text text-left">Various Invoice Generation Option</div>
+                                <div class="text-left">Having well presented and easy to understand invoices will make you look more professional, so we will provide various invoice generation option making sure that you are using the right invoicing tool.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt128 mb32 justify-content-center">
+                        <div class="col-md-6 text-center mt32 mb16 row">
+                            <div class="col-md-1 mb16">
+                                <div class="number">5</div>
+                            </div>
+                            <div class="col-md-11" style="padding-left:23px;">
+                                <div class="feature-text text-left">Product Collection &amp; Management</div>
+                                <div class="text-left">Consumers spend more time researching product purchases online before they buy. This makes quality product content on your eCommerce store more important than ever. It's all a part of a better customer experience, which can lead to an increase in your eCommerce sales.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 offset-2">
+                            <img src="/theme_vibrant_marketplace/static/src/img/perk-5.png" class="w-100" alt="Perks" />
+                        </div>
+                    </div>
+                    <div class="row mt128 mb32 hidden-xs justify-content-center">
+                        <div class="col-md-4">
+                            <img src="/theme_vibrant_marketplace/static/src/img/perk-6.png" class="w-100" alt="Perks" />
+                        </div>
+                        <div class="col-md-6 text-center mt32 mb16 row offset-2">
+                            <div class="col-md-1 mb16">
+                                <div class="number">6</div>
+                            </div>
+                            <div class="col-md-11" style="padding-left:23px;">
+                                <div class="feature-text text-left">View Other Seller Profile</div>
+                                <div class="text-left">The marketplace is made up of items offered by a variety of different merchants, both companies, and individuals. Now you can take a peek inside their seller profile and look at what other sellers are selling.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+
+            <xpath expr="//div[hasclass('container-fluid')]/div[1]" position="replace">
+                <div class="row justify-content-center">
+                    <h2 class="text-center p-2 vb_notify">
+                        More than
+                        <strong>5,000 Sellers</strong>
+                        are part of our Marketplace Store,
+                        <t t-set="wk_current_user" t-value="website.env.user" />
+                        <t t-set="is_user_public" t-value="wk_current_user == request.website.user_id" />
+                        <t t-if="wk_current_user._is_admin() or is_user_public">
+                            <a t-if="signup_enabled" href="/seller/signup" class="text-link" style="font-weight:600;">Join Us</a>
+                        </t>
+                        <t t-else="">
+                            <t t-if="wk_current_user.is_marketplace_user()">
+                                <a href="/my/marketplace" class="text-link" style="font-weight:600;">Go to Marketplace Dashboard</a>
+                            </t>
+                            <t t-else="">
+                                <a href="/my/marketplace/become_seller" class="text-link" style="font-weight:600;">Join Us</a>
+                            </t>
+                        </t>
+                        today and get all the excited perks.
+                    </h2>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="seller_list_item_inherited" inherit_id="odoo_marketplace.seller_list_item" priority="1">
+            <xpath expr="//div[@itemscope='itemscope']" position="replace">
+                <div itemscope="itemscope">
+                    <div class="wk_ribbon-wrapper">
+                        <div class="wk_ribbon badge badge-danger p-1">Best Seller</div>
+                    </div>
+                    <div class="row col-xs-12 ml0 mr0" style="padding:10px;">
+                        <div class="col-md-4 col-4" style="padding:0px">
+                            <div style="">
+                                <a itemprop="url" t-attf-href="/seller/profile/#{seller_obj.sudo().url_handler if seller_obj.sudo().url_handler else seller_obj.sudo().id}">
+                                    <span itemprop="image" t-field="seller_obj.sudo().profile_image" t-options="{'widget': 'image', 'style':'width: 100px;border: 5px solid;border-radius: 4px;border-color: rgb(73, 73, 73);', 'zoom': 'image', 'class':''}" t-att-alt="seller_obj.sudo().name" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-6 ml-3 p-0">
+                            <div class="" style="padding-right: 0px;" id="seller_name">
+                                <strong>
+                                    <a itemprop="name" class="grid-seller-name" t-attf-href="/seller/profile/#{seller_obj.sudo().url_handler if seller_obj.sudo().url_handler else seller_obj.sudo().id}" t-field="seller_obj.sudo().name" />
+                                </strong>
+                            </div>
+                            <div id="seller_review"></div>
+                            <div id="seller_other_info"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <t t-if="website.sudo().get_group_mp_shop_allow() ">
+                            <t t-set="mp_seller_shop_id" t-value="seller_obj.sudo().seller_shop_id" />
+                            <t t-if="mp_seller_shop_id and mp_seller_shop_id.website_published and mp_seller_shop_id.active">
+                                <div class="col-md-6" id="seller_shop">
+                                    <div class="container-fluid">
+                                        <div>
+                                            <img class="mr-2" src="/theme_vibrant_marketplace/static/src/img/shop.png" alt="Shop" />
+                                            <span class="seller-shop-name">
+                                                <a t-attf-href="/seller/shop/#{mp_seller_shop_id.sudo().url_handler}">
+                                                    <t t-esc="mp_seller_shop_id.name" />
+                                                </a>
+                                            </span>
+                                        </div>
+                                        <div class="mb4 shop-tag-line">
+                                            <t t-if="mp_seller_shop_id">
+                                                <span>
+                                                    <t t-esc="mp_seller_shop_id.shop_tag_line" />
+                                                </span>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </t>
+                        <div t-attf-class="text-left #{'col-md-6' if website.sudo().get_group_mp_shop_allow() else 'col-md-12'}">
+                            <a class="view-profile" itemprop="name" t-attf-href="/seller/profile/#{seller_obj.sudo().url_handler if seller_obj.sudo().url_handler else seller_obj.sudo().id}">
+                                <span>
+                                    <i class="fa fa-user mr-2" />
+                                    View Profile
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="seller_shop_list_item_inherited" inherit_id="odoo_marketplace.seller_shop_list_item" priority="1">
+            <xpath expr="//section[@id='mp_shop_content']" position="replace">
+                <section id="vb_shop_content" style="padding-bottom:5px;" class="text-center">
+                    <div class="mb4 text-left" id="seller-shop-name">
+                        <strong>
+                            <a itemprop="name" t-att-href="keep('/seller/shop/%s' % seller_shop.url_handler, page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" t-field="seller_shop.name" />
+                        </strong>
+                    </div>
+                    <div class="row" id="profile_and_shop">
+                        <div class="col-md-6 text-center">
+                            <a t-attf-href="/seller/profile/#{seller_shop.sudo().seller_id.url_handler if seller_shop.sudo().seller_id.url_handler else seller_shop.sudo().seller_id.id}" class="btn btn-sm btn-primary">
+                                <span class="fa fa-user">
+                                    <![CDATA[&nbsp;]]>
+                                    Seller Profile
+                                </span>
+                            </a>
+                        </div>
+                        <t t-if="website.sudo().get_group_mp_shop_allow() ">
+                            <t t-if="seller_shop.sudo().active">
+                                <div class="col-md-6 text-center">
+                                    <a t-attf-href="/seller/shop/#{seller_shop.sudo().url_handler}" class="btn btn-sm btn-success mb4">
+                                        <span class="fa fa-home">
+                                            <![CDATA[&nbsp;]]>
+                                            Visit Shop
+                                        </span>
+                                    </a>
+                                </div>
+                            </t>
+                        </t>
+                    </div>
+                </section>
+            </xpath>
+        </template>
+        <!-- <template id="marketplace_dashboard_link" inherit_id="odoo_marketplace.marketplace_dashboard_link">
+			<xpath expr="//t[@t-if='website.env.user.sudo().partner_id.seller']" position="replace">
+                <t t-if="website.env.user.sudo().partner_id.seller">
+                    <a class="dropdown-item" href="/my/marketplace" role="menuitem" groups="odoo_marketplace.marketplace_draft_seller_group">
+                        <img class="mr-3 pull-left" src="/theme_vibrant_marketplace/static/src/img/compare_product.png" alt="marketplace" />
+                        <span>Marketplace</span>
+                    </a>
+                </t>
+			</xpath>
+		</template> -->
+    </data>
+</odoo>

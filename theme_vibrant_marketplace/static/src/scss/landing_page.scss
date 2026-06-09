@@ -1,0 +1,77 @@
+#wrapwrap {
+  .promo {
+    .sell_page_main_div {
+      padding: 0;
+      h2 {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: bold !important;
+        font-size: 38px;
+        line-height: 165.7%;
+        text-align: center;
+        text-transform: capitalize;
+        color: #ffffff;
+        margin-top: 60px;
+      }
+      .tagline {
+        font-style: normal;
+        font-weight: 600 !important;
+        font-size: 16px;
+        line-height: 165.7%;
+        text-align: center;
+        text-transform: capitalize;
+        color: #ffffff;
+      }
+      a {
+        margin-top: 38px;
+      }
+    }
+  }
+
+  .leftContainer + .oe_structure {
+    & + .container-fluid {
+      .selling-title {
+        font-style: normal;
+        font-weight: 600 !important;
+        font-size: 22px;
+        line-height: 165.7%;
+        text-align: center;
+        text-transform: capitalize;
+        color: #3f4451;
+      }
+
+      .vb_notify {
+        font-style: normal;
+        font-weight: 500 !important;
+        font-size: 18px;
+        line-height: 165.7%;
+        text-transform: capitalize;
+        color: #554d4d;
+        width: 50%;
+        a {
+          color: $success !important;
+        }
+      }
+    }
+  }
+
+  .process_of_selling {
+    .shadow-sm {
+      background: #ffffff;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+    }
+  }
+
+  .vb_perks {
+    .number {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 54px;
+      line-height: 75.7%;
+      text-align: center;
+      text-transform: capitalize;
+      color: #a9c7fa;
+    }
+  }
+}
