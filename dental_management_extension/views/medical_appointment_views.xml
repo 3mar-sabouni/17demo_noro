@@ -1,0 +1,162 @@
+<odoo>
+    <record id="view_medical_appointment_form_inherited" model="ir.ui.view">
+        <field name="name">medical.appointment.form.inherited</field>
+        <field name="model">medical.appointment</field>
+        <field name="inherit_id" ref="pragtech_dental_management.medical_appointment_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree[field[@name='pres_id1']]" position="after">
+                <label for="child_ids" string="Related Appointments" invisible="parent_id != False"/>
+                <tree>
+                    <field name="child_ids"
+                        context="{'default_parent_id': active_id,'default_patient': patient}"
+                        colspan="4" invisible="parent_id != False"/>
+                </tree>
+            </xpath>
+            <field name="name" position="after">
+                <field name="parent_id" readonly="1"/>
+                <field name="has_mold" groups="pragtech_dental_management.group_dental_doc_menu"/>
+                <field name="has_xray" groups="pragtech_dental_management.group_dental_doc_menu"/>
+                <field name="type"/>
+            </field>
+            <field name="doctor" position="after">
+                <field name="created_by_group" />
+            </field>
+            <xpath expr="//sheet" position="inside">
+                <field name="invoice_count" string="Invoices" invisible="1"/>
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_invoice" type="object" class="oe_stat_button" icon="fa-pencil-square-o"
+                       invisible="invoice_count == 0">
+                        <field name="invoice_count" string="Invoices" widget="statinfo" field_id="invoice_count_0"/>
+                    </button>
+                    <button name="action_view_molds" type="object" class="oe_stat_button" icon="fa-flask" string="Mold"
+                            invisible="mold_count == 0">
+                        <field name="mold_count" string="Molds"/>
+                    </button>
+                    <button name="action_view_xrays"
+                            type="object"
+                            string="XRays"
+                            class="oe_stat_button"
+                            icon="fa-stethoscope"
+                            invisible="xray_count == 0"
+                            groups="pragtech_dental_management.group_dental_doc_menu">
+                        <field name="xray_count"  widget="statinfo" string="X-Rays"/>
+                    </button>
+                </div>
+            </xpath>
+            <xpath expr="//header/button[@name='create_invoices']" position="attributes">
+                <attribute name="invisible">parent_id != False</attribute>
+            </xpath>
+            <xpath expr="//header" position="inside">
+            <button name="action_create_mold"
+                    type="object"
+                    string="Create Mold"
+                    class="oe_highlight"
+                    invisible="has_mold ==  False"
+                    groups="pragtech_dental_management.group_dental_doc_menu"/>
+            <button name="action_create_xray"
+                    type="object"
+                    string="Create X-Ray"
+                    class="oe_highlight"
+                    invisible="has_xray ==  False"
+                    groups="pragtech_dental_management.group_dental_doc_menu"/>
+            <button name="action_complete_main_appointment"
+                    type="object"
+                    string="Complate Main"
+                    class="btn-primary"
+                    invisible="parent_id !=  False or state == 'main_complate'"/>
+            </xpath>
+            <xpath expr="//header/button[@name='confirm_appointment']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu,dental_management_extension.group_reception_two,dental_management_extension.group_reception_one</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='send_state']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu,dental_management_extension.group_reception_two,dental_management_extension.group_reception_one</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='confirm']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu,dental_management_extension.group_reception_two,dental_management_extension.group_reception_one</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='missed']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu,dental_management_extension.group_reception_two,dental_management_extension.group_reception_one</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='checkin']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu,dental_management_extension.group_reception_two,dental_management_extension.group_reception_one</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='ready']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu,dental_management_extension.group_reception_two,dental_management_extension.group_reception_one</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='create_invoices']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu,dental_management_extension.group_reception_two,dental_management_extension.group_reception_one</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='done']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu,dental_management_extension.group_reception_two,dental_management_extension.group_reception_one</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='cancel']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu,dental_management_extension.group_reception_two,dental_management_extension.group_reception_one</attribute>
+            </xpath>
+            <xpath expr="//field[@name='pres_id1']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='no_invoice']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            
+            <!-- <xpath expr="//field[@name='doctor']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu,appointment_rule_reception_one,appointment_rule_reception_two</attribute>
+            </xpath> -->
+
+            <xpath expr="//field[@name='service_id']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu</attribute>
+            </xpath>
+            <xpath expr="//field[@name='room_id']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu</attribute>
+            </xpath>
+            <xpath expr="//field[@name='clinic_center_id']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu</attribute>
+            </xpath>
+            <xpath expr="//field[@name='service_id']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu</attribute>
+            </xpath>
+            <xpath expr="//field[@name='saleperson_id']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu</attribute>
+            </xpath>
+            <xpath expr="//field[@name='ready_time']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu</attribute>
+            </xpath>            
+            <xpath expr="//field[@name='checkin_time']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu</attribute>
+            </xpath>            
+            <xpath expr="//field[@name='waiting_time']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu</attribute>
+            </xpath>
+            <xpath expr="//field[@name='operations']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu</attribute>
+            </xpath>            
+            <xpath expr="//label[@for='pres_id1']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//label[@for='operations']" position="attributes">
+                <attribute name="groups">pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu</attribute>
+            </xpath>
+
+            <field name="service_id" position="after">
+                <field name="service_price"  groups="pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu"/>
+                <field name="service_qty"  groups="pragtech_dental_management.group_dental_doc_menu,pragtech_dental_management.group_dental_mng_menu"/>
+            </field>
+            <field name="patient_state" position="after">
+                <field name="reference_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="medical_appointment_tree_inherit_medical_appointment" model="ir.ui.view">
+        <field name="name">model.name.view.form.inherit</field>
+        <field name="model">medical.appointment</field>
+        <field name="inherit_id" ref="pragtech_dental_management.medical_appointment_tree"/>
+        <field name="arch" type="xml">
+            <field name="patient" position="after">
+                <field name="mobile" />
+                <field name="created_by_group" />
+                
+            </field>
+        </field>
+    </record>
+</odoo>

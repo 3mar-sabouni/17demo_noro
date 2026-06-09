@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_medical_teeth_treatment_user,Access Medical Teeth Treatment,model_medical_teeth_treatment,base.group_user,0,0,0,0
+access_medical_teeth_treatment_dental_receptionist,Access Medical Teeth Treatment for Dental Receptionist,model_medical_teeth_treatment,pragtech_dental_management.group_dental_user_menu,1,1,1,0
+access_medical_appointment_reception_one,medical.appointment.reception_one,dental_management_extension.model_medical_appointment,dental_management_extension.group_reception_one,1,1,1,0
+access_medical_appointment_reception_two,medical.appointment.reception_two,dental_management_extension.model_medical_appointment,dental_management_extension.group_reception_two,1,1,1,0
+access_medical_appointment_reception_main,medical.appointment.reception_main,dental_management_extension.model_medical_appointment,dental_management_extension.group_reception_main,1,1,1,1
+access_medical_laboratory_manager,access.medical.laboratory.manager,dental_management_extension.model_medical_laboratory,base.group_system,1,1,1,1
+access_medical_mold_manager,access.medical.mold.manager,dental_management_extension.model_medical_mold,base.group_system,1,1,1,1
+access_medical_reference,access.medical.reference.manager,dental_management_extension.model_medical_reference,base.group_user,1,1,1,1
+access_medical_xray_user,access.medical.xray,model_medical_xray,base.group_user,1,1,1,1
+access_medical_xray_type_user,access.medical.xray.type,model_medical_xray_type,base.group_user,1,0,0,0
+access_medical_xray_manager,access.medical.xray.manager,model_medical_xray,base.group_system,1,1,1,1
+access_medical_xray_type_manager,access.medical.xray.type.manager,model_medical_xray_type,base.group_system,1,1,1,1

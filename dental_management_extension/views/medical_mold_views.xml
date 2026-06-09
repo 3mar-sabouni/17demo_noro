@@ -1,0 +1,76 @@
+<odoo>
+    <!-- Action to Open Medical Mold -->
+    <record id="action_medical_mold" model="ir.actions.act_window">
+        <field name="name">Medical Molds</field>
+        <field name="res_model">medical.mold</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new Medical Mold.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item for Medical Molds -->
+    <menuitem id="menu_medical_mold_root" name="Molds" parent="pragtech_dental_management.medical_menu"/>
+    <menuitem id="menu_medical_mold" name="Molds" parent="menu_medical_mold_root" action="action_medical_mold"/>
+
+    <!-- Tree View -->
+    <record id="view_medical_mold_tree" model="ir.ui.view">
+        <field name="name">medical.mold.tree</field>
+        <field name="model">medical.mold</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence"/>
+                <field name="laboratory_id"/>
+                <field name="appointment_id"/>
+                <field name="user_id"/>
+                <field name="state"/>
+                <field name="bill_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_medical_mold_form" model="ir.ui.view">
+        <field name="name">medical.mold.form</field>
+        <field name="model">medical.mold</field>
+        <field name="arch" type="xml">
+            <form string="Medical Mold">
+  
+                <!-- Header with State and Buttons -->
+                <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,send,received,paid,done"/>
+                        <button name="action_send" type="object" string="Send" class="btn-secondary" invisible="state != 'draft'"/>
+                        <button name="action_receive" type="object" string="Receive" class="btn-primary" invisible="state != 'send'"/>
+                        <button name="action_mark_paid" type="object" string="Mark as Paid" class="btn-info" invisible="state != 'received'"/>
+                        <button name="action_done" type="object" string="Done" class="btn-success" invisible="state != 'paid'"/>
+                        <button name="action_create_bill" type="object" string="Create Bill" class="btn-secondary" invisible="bill_id != False"/>
+                </header>
+                <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_invoice" type="object" class="oe_stat_button" icon="fa-pencil-square-o" string="Bill"
+                       invisible="bill_id == False">
+                    </button>
+                </div>
+                    <group>
+                        <group>
+                            <field name="sequence" readonly="1"/>
+                            <field name="laboratory_id" required="1"/>
+                            <field name="appointment_id"/>
+                            <field name="user_id"/>
+                            <field name="bill_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                
+                <!-- Odoo Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>

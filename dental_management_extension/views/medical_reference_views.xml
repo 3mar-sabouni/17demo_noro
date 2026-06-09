@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Form View -->
+        <record id="medical_reference_form_view" model="ir.ui.view">
+            <field name="name">medical.reference.form</field>
+            <field name="model">medical.reference</field>
+            <field name="arch" type="xml">
+                <form string="Medical Reference">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="medical_reference_tree_view" model="ir.ui.view">
+            <field name="name">medical.reference.tree</field>
+            <field name="model">medical.reference</field>
+            <field name="arch" type="xml">
+                <tree string="Medical References">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="medical_reference_action" model="ir.actions.act_window">
+            <field name="name">Medical References</field>
+            <field name="res_model">medical.reference</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem
+            id="medical_reference_menu"
+            name="Medical References"
+            action="medical_reference_action"
+            parent="pragtech_dental_management.medical_conf_menu"
+            sequence="10"/>
+
+        <menuitem id="pragtech_dental_management.medical_prescription_menu" name="Prescriptions" sequence="3" parent="pragtech_dental_management.medical_menu" groups="pragtech_dental_management.group_dental_doc_menu"/>
+        <menuitem id="pragtech_dental_management.medical_conf_menu"  parent="pragtech_dental_management.medical_menu" sequence="12" name="Configuration" groups="pragtech_dental_management.group_dental_doc_menu"/>
+        <menuitem id="pragtech_dental_management.dental_report_menu" parent="pragtech_dental_management.medical_menu" sequence="6" name="Reports" groups="pragtech_dental_management.group_dental_doc_menu"/>
+ 
+    </data>
+</odoo>

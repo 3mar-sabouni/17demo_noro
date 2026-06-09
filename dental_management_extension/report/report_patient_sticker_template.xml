@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_print_patient_sticker" model="ir.actions.report">
+        <field name="name">Patient Sticker</field>
+        <field name="model">medical.patient</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dental_management_extension.report_patient_sticker_template</field>
+        <field name="report_file">dental_management_extension.report_patient_sticker_template</field>
+        <field name="paperformat_id" ref="dental_management_extension.paperformat_patient_sticker"/>
+        <field name="print_report_name">'Patient Sticker - %s' % (object.patient_id or '')</field>
+    </record>
+    <template id="report_patient_sticker_template" name="Patient Sticker Template">
+        <t t-name="dental_management_extension.report_patient_sticker_template">
+            <t t-call="web.html_container">
+                <style>
+                    .page-break {
+                        page-break-after: always;
+                    }
+                </style>
+                <t t-foreach="docs" t-as="patient">
+                    <div style="padding:2px; font-size:16px; line-height:1.4;">
+                        <div><strong>ID:</strong> <t t-esc="patient.patient_id"/></div>
+                        <div><strong>Mobile:</strong> <t t-esc="patient.mobile"/></div>
+                        <div><strong>DOB:</strong> <t t-esc="patient.dob"/></div>
+                        <div t-if="patient.barcode" style="margin-top:4px;">
+                            <span t-field="patient.barcode" 
+                                t-options='{"widget": "barcode", "type": "Code128", "width": 300, "height": 40}'/>
+                        </div>
+                    </div>
+                    <div class="page-break"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+
+</odoo>
+

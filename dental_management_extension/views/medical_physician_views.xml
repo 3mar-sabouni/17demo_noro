@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="medical_physician_view_inherit_medical_physician" model="ir.ui.view">
+        <field name="name">medical.physician.view.form.inherit</field>
+        <field name="model">medical.physician</field>
+        <field name="inherit_id" ref="pragtech_dental_management.medical_physician_view"/>
+        <field name="arch" type="xml">
+            <field name="mobile" position="after">
+                <field name="analytic_distribution" widget="analytic_distribution"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,46 @@
+<odoo>
+    <!-- Action to Open Laboratory -->
+    <record id="action_medical_laboratory" model="ir.actions.act_window">
+        <field name="name">Laboratories</field>
+        <field name="res_model">medical.laboratory</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new Laboratory.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item for Laboratories -->
+    <menuitem id="menu_medical_laboratory" name="Laboratories" parent="pragtech_dental_management.medical_conf_hospital" action="action_medical_laboratory"/>
+
+    <!-- Tree View -->
+    <record id="view_medical_laboratory_tree" model="ir.ui.view">
+        <field name="name">medical.laboratory.tree</field>
+        <field name="model">medical.laboratory</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="sell_price"/>
+                <field name="cost_price"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_medical_laboratory_form" model="ir.ui.view">
+        <field name="name">medical.laboratory.form</field>
+        <field name="model">medical.laboratory</field>
+        <field name="arch" type="xml">
+            <form string="Laboratory">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="sell_price" required="1"/>
+                        <field name="cost_price" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

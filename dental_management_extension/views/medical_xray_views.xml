@@ -1,0 +1,74 @@
+<odoo>
+    <!-- Tree View for X-Ray -->
+    <record id="view_medical_xray_tree" model="ir.ui.view">
+        <field name="name">medical.xray.tree</field>
+        <field name="model">medical.xray</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence"/>
+                <field name="xray_type"/>
+                <field name="appointment_id"/>
+                <field name="state"/>
+                <field name="invoice_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for X-Ray -->
+    <record id="view_medical_xray_form" model="ir.ui.view">
+        <field name="name">medical.xray.form</field>
+        <field name="model">medical.xray</field>
+        <field name="arch" type="xml">
+            <form string="X-Ray">
+                <header>
+                    <button name="action_done" type="object" string="Mark as Done" class="btn-primary"
+                            invisible="state != 'draft'" />
+
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary"
+                            invisible="state != 'draft'" />
+
+                    <button name="action_draft" type="object" string="Reset to Draft" class="btn-secondary"
+                            invisible="state not in ('cancel','done')" />
+                    <button name="action_create_invoice" type="object" string="Create Invoice"
+                            class="btn-success"
+                            invisible="state != 'done' or invoice_id != False" />
+
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_invoice" type="object" class="oe_stat_button" icon="fa-pencil-square-o" string="Invoice"
+                       invisible="invoice_id == False">
+                    </button>
+                </div>
+                    <group>
+                        <field name="sequence" readonly="1"/>
+                        <field name="patient_id"/>
+                        <field name="xray_type"/>
+                        <field name="appointment_id"/>
+                        <field name="invoice_id" invisible="1"/>
+                    </group>
+                </sheet>
+                <!-- Odoo Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for X-Ray -->
+    <record id="action_medical_xray" model="ir.actions.act_window">
+        <field name="name">X-Rays</field>
+        <field name="res_model">medical.xray</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first X-Ray record
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_medical_xray" name="X-Ray" parent="pragtech_dental_management.medical_menu" action="action_medical_xray"/>
+</odoo>

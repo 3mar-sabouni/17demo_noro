@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Sequence for Mold -->
+    <record id="seq_mold" model="ir.sequence">
+        <field name="name">Mold Sequence</field>
+        <field name="code">medical.mold</field>
+        <field name="prefix">MOLD-</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Create a Product for Mold Service -->
+    <record id="product_mold_service" model="product.product">
+        <field name="name">Mold Service</field>
+        <field name="type">service</field>
+        <field name="default_code">MOLD</field>
+        <field name="sale_ok" eval="True"/>
+        <field name="purchase_ok" eval="False"/>
+    </record>
+</odoo>

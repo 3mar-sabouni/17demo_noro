@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+
+        <!-- Inherit the existing tree view and add the 'is_invoiced' field -->
+        <record model="ir.ui.view" id="medical_patient_medication_tree_invoiced_inherit">
+            <field name="name">Teeth Treatment Tree View Inherited</field>
+            <field name="model">medical.teeth.treatment</field>
+            <field name="inherit_id" ref="pragtech_dental_management.medical_patient_medication_tree"/> <!-- Reference the original tree view -->
+            <field name="arch" type="xml">
+                <!-- XPath to find the location and insert the 'is_invoiced' field after 'amount' -->
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="is_invoiced"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
