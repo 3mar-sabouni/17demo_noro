@@ -1,0 +1,165 @@
+<odoo>
+    <data>
+        <template id="custom_order_confirmation" name="Custom Order Confirmation">
+            <t t-call="website.layout">
+                <div class="container mt-5 mb-5">
+                    <div class="alert alert-success text-center">
+                        <h2>Thank You!</h2>
+                        <p><t t-esc="thank_you_message"/></p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h4>Order Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Order Reference:</strong> <t t-esc="order.name"/></p>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="/shop" class="btn btn-primary">Back to Shop</a>
+                    </div>
+                </div>
+            </t>
+        </template>
+        
+    <template id="checkout_direct_details"
+            name="checkout_direct_details"
+            inherit_id="website_sale.navigation_buttons">
+
+        <xpath expr="//a[@name='website_sale_main_button']" position="replace">
+
+        <form method="POST"
+            action="/shop/custom_confirm_order"
+            class="oe_website_sale">
+
+            <input type="hidden"
+                name="csrf_token"
+                t-att-value="request.csrf_token()"/>
+
+                <t t-set="checkout_mode"
+                t-value="request.website.account_on_checkout"/>
+
+                <t t-set="is_public_user"
+                t-value="request.env.user._is_public()"/>
+
+                <div class="custom-fields mb-3">
+
+                    <!-- Name -->
+                    <div class="form-group mb-3">
+
+                        <label for="customer_name">
+                            Name:
+                        </label>
+
+                        <input type="text"
+                            id="customer_name"
+                            name="customer_name"
+                            class="form-control"
+                            placeholder="Enter your name"
+                            required="1"
+                            t-att-value="request.env.user.partner_id.name if not is_public_user else ''"/>
+
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group mb-3">
+
+                        <label for="customer_phone">
+                            Phone:
+                        </label>
+
+                        <input type="tel"
+                            id="customer_phone"
+                            name="customer_phone"
+                            class="form-control"
+                            placeholder="Enter your phone number"
+                            required="1"
+                            t-att-value="request.env.user.partner_id.phone if not is_public_user else ''"/>
+
+                    </div>
+
+                    <!-- Address -->
+                    <div class="form-group mb-3">
+
+                        <label for="customer_address">
+                            Address:
+                        </label>
+
+                        <textarea id="customer_address"
+                                name="customer_address"
+                                class="form-control"
+                                placeholder="Enter your address"
+                                rows="3"
+                                required="1"><t t-esc="request.env.user.partner_id.street if not is_public_user else ''"/></textarea>
+
+                    </div>
+
+                </div>
+
+                <!-- Confirm Button -->
+                <button type="submit"
+                        name="order_confirm"
+                        class="btn btn-primary w-100"
+                        t-att-disabled="'disabled' if checkout_mode == 'mandatory' and is_public_user else None">
+
+                    Confirm Order
+
+                </button>
+
+                <!-- Login Required Message -->
+                <t t-if="checkout_mode == 'mandatory' and is_public_user">
+
+                    <div class="alert alert-danger mt-3 text-center">
+
+                        You must sign in or create an account before confirming the order.
+
+                    </div>
+
+                    <div class="d-flex gap-2 mt-2">
+
+                        <!-- Sign In -->
+                        <a href="/web/login?redirect=/shop/cart"
+                        class="btn btn-outline-primary w-50">
+
+                            Sign In
+
+                        </a>
+
+                        <!-- Sign Up -->
+                        <a href="/web/signup?redirect=/shop/cart"
+                        class="btn btn-primary w-50">
+
+                            Sign Up
+
+                        </a>
+
+                    </div>
+
+                </t>
+
+            </form>
+
+        </xpath>
+
+    </template>
+
+    <template id="remove_step_wizard" inherit_id="website.step_wizard">
+        <xpath expr="//div[1]" position="replace">
+        </xpath>
+    </template>
+
+        <record id="website_settings_view_form" model="ir.ui.view">
+        <field name="name">website.settings.view.form</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="website.view_website_form"/>
+        <field name="arch" type="xml">
+        <field name="language_ids" position="after">
+          <field name="checkout_thank_you_message"></field>
+        </field>
+        </field>
+    </record>
+
+    </data>
+</odoo>
